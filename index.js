@@ -26,6 +26,10 @@ server.use(cors());
 server.use(bodyParser.json());
 
 
+server.get("/", (req, res) => {
+  res.send("Express on Vercel");
+});
+
 server.post("/demo",async (req,res)=>{
     let expense = new Expense();
     expense.date = req.body.date;
