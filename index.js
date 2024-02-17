@@ -22,7 +22,17 @@ const expenseData = new mongoose.Schema({
 
 
 const server = express();
-server.use(cors());
+
+// server.use(cors());
+const corsConfig = {
+  origin: '',
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE']
+}
+server.use(cors(corsConfig))
+server.options("", cors(corsConfig))
+
+
 server.use(bodyParser.json());
 
 
